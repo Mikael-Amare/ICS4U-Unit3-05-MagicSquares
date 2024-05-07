@@ -46,42 +46,11 @@ final class Main {
 
     public static void genSquare2(final int[] square, final int index) {
         // generate the magic sqaure
-        for (int counter = 1; counter < 9; counter++) {
-            numberOfProcess++;
-            square[index] = counter;
-
-            // only fill in spots that have not yet been filled in
-            if (index < 8) {
-                genSquare2(square, index + 1);
-            } else if (isMagic(square) == true) {
-                // if all done and it is magic, then print it out
-                printMagicSquare(square);
-                numberOfMagicSquares++;
-            }
-        }
     }
 
     public static void genSquare(final int[] square, final int[] currentSquare,
                                  final int index) {
         // generate the magic sqaure
-        for (int counter = 0; counter < square.length; counter++) {
-            numberOfProcess++;
-            if (currentSquare[counter] == 0) {
-                // incriment to the next step
-                square[index] = counter + 1;
-                currentSquare[counter] = 1;
-
-                // only fill in spots that have not yet been filled in
-                if (index < square.length - 1) {
-                    genSquare(square, currentSquare, index + 1);
-                } else if (isMagic(square) == true) {
-                    // if all done and it is magic, then print it out
-                    printMagicSquare(square);
-                    numberOfMagicSquares++;
-                }
-                currentSquare[counter] = 0;
-            }
-        }
     }
 
     public static boolean isMagic(final int[] preSquare) {
